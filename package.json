@@ -1,0 +1,25 @@
+{
+  "name": "rms",
+  "version": "1.0.0",
+  "description": "This is a backend for the application of restaurant management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uniquemozilla22/restaurant_management_system.git"
+  },
+  "keywords": [
+    "restaurant",
+    "management",
+    "system",
+    "rms"
+  ],
+  "author": "Yogesh Bhattarai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uniquemozilla22/restaurant_management_system/issues"
+  },
+  "homepage": "https://github.com/uniquemozilla22/restaurant_management_system#readme"
+}
