@@ -1,6 +1,10 @@
+const login = require("./login/login");
+
 const routes = (router) => {
+  router.post("/login", login);
+
   router.get("/", (req, res) => {
-    res.send("<h1>Server is running<");
+    res.send("Server has started");
   });
 };
 

@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 
 app.use("/", router);
 
-require("./routes")(router);
+require("./database/connection.js");
+
+require("./routes/index.js")(router);
 
 app.listen(process.env.NODE_ENV !== "dev" ? process.env.PORT : 8000);
