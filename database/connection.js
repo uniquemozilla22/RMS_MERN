@@ -5,7 +5,9 @@ const connection = (mongoose) => {
     process.env.USERNAME_DB +
     ":" +
     process.env.PASSWORD_DB +
-    "@cluster0.etwiv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    "@cluster0.090mw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+  console.log(process.env.USERNAME_DB, process.env.PASSWORD_DB);
 
   mongoose.connect(uri, {
     useNewUrlParser: true,
@@ -13,7 +15,7 @@ const connection = (mongoose) => {
   });
 
   database.once("open", () => {
-    console.log("Database connection sucessful");
+    console.log("Database Connected with :", process.env.USERNAME_DB);
   });
 };
 
