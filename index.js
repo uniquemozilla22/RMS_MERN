@@ -16,4 +16,7 @@ require("./database/connection.js")(mongoose);
 
 require("./routes/index.js")(router);
 
-app.listen(process.env.NODE_ENV !== "dev" ? process.env.PORT : 8000);
+
+const port =process.env.NODE_ENV !== "dev" ? process.env.PORT : 8000
+
+app.listen(port,()=>console.log("connection running at :"+port))

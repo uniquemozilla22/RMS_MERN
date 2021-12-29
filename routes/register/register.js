@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const register = async (req, res, Response) => {
   const { username, password, name, email, phone, address } = req.body;
 
-  validateEmail(email);
+  validateEmail(email,res,Response);
 
   const user = new UserSchema({
     username,
@@ -34,7 +34,7 @@ const register = async (req, res, Response) => {
 
 module.exports = register;
 
-const validateEmail = (email) => {
+const validateEmail = (email,res,Response) => {
   UserSchema.findOne({ email }).then((availableUser) => {
     if (availableUser)
       res
