@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER } from "../Action/Types";
+import { LOADER, LOGIN, REGISTER } from "../Action/Types";
 import LoginReducer from "./login/LoginReducer";
 
 const initialState = {
@@ -6,6 +6,7 @@ const initialState = {
     username: null,
     isLoggedIn: false,
   },
+  isLoaderActive: false,
 };
 
 const reducers = (state = initialState, action) => {
@@ -15,6 +16,9 @@ const reducers = (state = initialState, action) => {
     }
     case REGISTER: {
       return state;
+    }
+    case LOADER: {
+      return { ...state, isLoaderActive: !state.isLoaderActive };
     }
     default:
       return state;

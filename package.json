@@ -25,9 +25,6 @@
   },
   "homepage": "https://github.com/uniquemozilla22/restaurant_management_system#readme",
   "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/material": "^5.2.6",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
     "concurrently": "^6.5.1",

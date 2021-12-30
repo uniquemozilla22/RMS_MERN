@@ -1,10 +1,14 @@
 import React from "react";
+import Layout from "../Components/Layout";
+import Login from "../Components/Login/Login";
 
 const LoginScreen = () => {
   return (
-    <div>
-      <h1>This is the Login Page</h1>
-    </div>
+    <Layout>
+      <main>
+        <Login />
+      </main>
+    </Layout>
   );
 };
 
