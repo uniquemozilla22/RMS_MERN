@@ -4,9 +4,12 @@ const bcrypt = require("bcrypt");
 const register = async (req, res, Response) => {
   const { username, password, name, email, phone, address } = req.body;
 
-  validateEmail(email,res,Response);
+  const containsEmail = validateEmail(email,res,Response);
 
-  const user = new UserSchema({
+  console.log(containsEmail)
+
+  if(!containsEmail)
+  {const user = new UserSchema({
     username,
     password,
     name,
@@ -29,14 +32,14 @@ const register = async (req, res, Response) => {
       res
         .status(500)
         .send(new Response(false, "Registration not Successfull:", err))
-    );
+    );}
 };
 
 module.exports = register;
 
 const validateEmail = (email,res,Response) => {
   UserSchema.findOne({ email }).then((availableUser) => {
-    if (availableUser)
+    if (availableUser){
       res
         .status(501)
         .send(
@@ -46,5 +49,8 @@ const validateEmail = (email,res,Response) => {
               availableUser.username
           )
         );
+      return true;
+      }
+      return false
   });
 };
