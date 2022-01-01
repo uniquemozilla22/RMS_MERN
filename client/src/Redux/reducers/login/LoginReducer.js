@@ -18,13 +18,7 @@ const LoginReducer = (state, action) => {
   //     console.log(error);
   //   });
 
-  return {
-    ...state,
-    user: {
-      username,
-      isLoggedIn: true,
-    },
-  };
+  return state;
 };
 
 export default LoginReducer;
