@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import classes from "./Login.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../loader/loader";
-import { LOADER, LOGIN } from "../../Redux/Action/Types";
+import LoginAction from "../../Redux/Action/LoginAction";
+import LoaderAction from "../../Redux/Action/LoaderAction";
 
 const Login = () => {
   const state = useSelector((state) => state.user);
@@ -13,11 +14,8 @@ const Login = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(LOADER);
-    dispatch({
-      type: LOGIN,
-      payload: { username: username.trim(), password: password.trim() },
-    });
+    dispatch(LoaderAction());
+    dispatch(LoginAction({ username, password }));
   };
 
   return (
@@ -44,7 +42,9 @@ const Login = () => {
               className="form-control"
               id="password"
               placeholder="Password"
-              onChange={(e) => setPassword(e.target.vaLue)}
+              onChange={(e) => setPassword(e.target.value)}
+              pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+              title="Minimum eight characters, at least one letter and one number"
               required
             />
           </div>
