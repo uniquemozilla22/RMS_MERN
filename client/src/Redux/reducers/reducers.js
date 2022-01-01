@@ -5,6 +5,7 @@ const initialState = {
   user: {
     username: null,
     isLoggedIn: false,
+    errorMessage: null,
   },
   isLoaderActive: false,
 };
@@ -12,13 +13,16 @@ const initialState = {
 const reducers = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN: {
-      return LoginReducer(state, action);
+      state = LoginReducer(state, action);
+      console.log(state);
+      return state;
     }
     case REGISTER: {
       return state;
     }
     case LOADER: {
-      return { ...state, isLoaderActive: !state.isLoaderActive };
+      state.isLoaderActive = !state.isLoaderActive;
+      return state;
     }
     default:
       return state;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const HomeScreen = ({ isLoggedIn }) => {
+const HomeScreen = () => {
   return (
     <div>
       <h1>Home Screen</h1>

@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import classes from "./Login.module.css";
-import { useSelector, useDispatch } from "react-redux";
-import Loader from "../loader/loader";
+import { useDispatch } from "react-redux";
 import LoginAction from "../../Redux/Action/LoginAction";
 import LoaderAction from "../../Redux/Action/LoaderAction";
 
 const Login = () => {
-  const state = useSelector((state) => state.user);
-  const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -16,6 +13,7 @@ const Login = () => {
     e.preventDefault();
     dispatch(LoaderAction());
     dispatch(LoginAction({ username, password }));
+    dispatch(LoaderAction());
   };
 
   return (
