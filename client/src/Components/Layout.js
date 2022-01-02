@@ -8,13 +8,15 @@ const Layout = (props) => {
   useEffect(() => {
     setIsLoaderActive(props.isLoaderActive);
   }, [props.isLoaderActive]);
+
   return (
     <>
       {props.children}
-      {isloaderActive ? <Loader /> : <></>}
+      {isloaderActive ? <Loader /> : null}
     </>
   );
 };
+
 const mapStateToProps = (state, ownprops) => {
   const { isLoaderActive } = state;
   return { ...ownprops, isLoaderActive };

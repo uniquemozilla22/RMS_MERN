@@ -6,11 +6,10 @@
 
 .login__section .login__card__container {
   margin: auto;
-  background: rgba(0, 0, 0, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(95, 95, 95, 0.5);
+  box-shadow: 0 8px 12px 0 rgba(84, 87, 128, 0.37);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
   padding: 2rem;
   min-height: 25%;
@@ -25,9 +24,13 @@
 
 .login__section .login__card__container form input {
   margin: 10px 0;
+  background: #2b2b2b80;
+  color: #cfcfcf;
+  border: none;
 }
 
 .login__section .login__card__container form button {
-  border: 2px solid blue;
   margin: 10px 0;
+  background: #2b2b2b;
+  color: #cfcfcf;
 }

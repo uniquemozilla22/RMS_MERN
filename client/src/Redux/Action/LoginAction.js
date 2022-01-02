@@ -6,14 +6,17 @@ const LoginAction = (payload) => {
   const { username, password } = payload;
 
   return (dispatch) => {
-    return loginToTheSyystem(username, password, dispatch)
-      .then((res) => dispatch(loginHandler(res)))
-      .catch((err) => dispatch(loginHandler(err.response)));
+    return loginToTheSyystem(username, password)
+      .then((res) => {
+        dispatch(loginHandler(res));
+      })
+      .catch((err) => {
+        dispatch(loginHandler(err.response));
+      });
   };
 };
 
-const loginToTheSyystem = (username, password, dispatch) => {
-  dispatch(LoaderAction());
+const loginToTheSyystem = (username, password) => {
   return axiosBase.post("/login", { username, password });
 };
 
