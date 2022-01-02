@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import Loader from "./loader/loader";
 
 const Layout = (props) => {
-  const loader = useSelector((state) => state.isLoaderActive);
-  const [isloaderActive, setIsLoaderActive] = useState(loader);
+  const [isloaderActive, setIsLoaderActive] = useState(props.isLoaderActive);
 
   useEffect(() => {
-    setIsLoaderActive(loader);
-  }, [loader]);
+    setIsLoaderActive(props.isLoaderActive);
+  }, [props.isLoaderActive]);
   return (
     <>
-      {isloaderActive ? <Loader /> : null}
       {props.children}
+      {isloaderActive ? <Loader /> : <></>}
     </>
   );
 };
+const mapStateToProps = (state, ownprops) => {
+  const { isLoaderActive } = state;
+  return { ...ownprops, isLoaderActive };
+};
 
-export default Layout;
+export default connect(mapStateToProps)(Layout);

@@ -3,9 +3,8 @@ import LoginReducer from "./login/LoginReducer";
 
 const initialState = {
   user: {
-    username: null,
+    userStatus: null,
     isLoggedIn: false,
-    errorMessage: null,
   },
   isLoaderActive: false,
 };
@@ -13,8 +12,7 @@ const initialState = {
 const reducers = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN: {
-      state = LoginReducer(state, action);
-      console.log(state);
+      state = { ...LoginReducer(state, action.payload) };
       return state;
     }
     case REGISTER: {

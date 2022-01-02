@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Login.module.css";
-import { useDispatch } from "react-redux";
+import { connect, shallowEqual, useDispatch, useSelector } from "react-redux";
 import LoginAction from "../../Redux/Action/LoginAction";
 import LoaderAction from "../../Redux/Action/LoaderAction";
+import { useNavigate } from "react-router";
 
-const Login = () => {
+const Login = (props) => {
+  const [user, setUser] = useState(props.user);
+  const navigation = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(LoaderAction());
-    dispatch(LoginAction({ username, password }));
-    dispatch(LoaderAction());
+    props.Login(username, password);
   };
+
+  useEffect(() => {
+    setUser(props.user);
+    if (props.user.isLoggedIn) {
+      navigation("/");
+    }
+  }, [navigation, props.user]);
 
   return (
     <div className={classes.login__section + " container"}>
@@ -23,6 +30,11 @@ const Login = () => {
           classes.login__card__container + " col-md-4 col-lg-4 col-sm-12"
         }
       >
+        {!user.isLoggedIn && user.userStatus !== null ? (
+          <div className="alert alert-danger" role="alert">
+            {user.userStatus}
+          </div>
+        ) : null}
         <form onSubmit={(e) => submitHandler(e)}>
           <div className="col-md-12">
             <input
@@ -57,4 +69,15 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state, ownprops) => {
+  return { ...state, ...ownprops };
+};
+
+const mapDispatchToProps = (dispatch, ownprops) => {
+  return {
+    Login: (username, password) =>
+      dispatch(LoginAction({ username, password })),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

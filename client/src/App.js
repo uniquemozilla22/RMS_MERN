@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { Routes, Route, Navigate } from "react-router";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
 
-const App = () => {
-  // const { isLoggedIn } = useSelector((state) => state.user);
-  const isLoggedIn = false;
-  const [loggedIn, setLoggedIn] = useState(isLoggedIn);
+const App = (props) => {
+  const [loggedIn, setLoggedIn] = useState(props.isLoggedIn);
 
   useEffect(() => {
-    setLoggedIn(isLoggedIn);
-  }, [isLoggedIn]);
+    setLoggedIn(props.isLoggedIn);
+  }, [props.isLoggedIn]);
   return (
     <>
       <Routes>
@@ -25,4 +23,9 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+  return { ...ownProps, isLooggedIn: state.user.isLoggedIn };
+};
+
+export default connect(mapStateToProps)(App);
