@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Login.module.css";
-import { connect, shallowEqual, useDispatch, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import LoginAction from "../../Redux/Action/LoginAction";
 import LoaderAction from "../../Redux/Action/LoaderAction";
 import { useNavigate } from "react-router";
@@ -22,7 +22,7 @@ const Login = (props) => {
   useEffect(() => {
     setUser(props.user);
     if (props.user.isLoggedIn) {
-      localStorage.setItem("logged", true);
+      localStorage.setItem("logged", props.user.userStatus);
       navigation("/");
     }
   }, [navigation, props.user]);

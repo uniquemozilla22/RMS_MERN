@@ -18,17 +18,17 @@ const findUser = async (username, password, Response) => {
   if (user) {
     const validPassword = await bcrypt.compare(password, user.password);
     return validPassword
-      ? createWebToken(user, Response, true)
+      ? createWebToken(user, Response, true, password)
       : new Response(false, "Not Valid Password");
   } else {
     return new Response(false, "Username Not Found");
   }
 };
 
-const createWebToken = (user, Response, isSuccess) => {
-  const { email, password, username, address, phone, isAdmin } = user;
+const createWebToken = (user, Response, isSuccess, pass) => {
+  const { email, username, address, phone, isAdmin } = user;
   const token = jwt.sign(
-    { email, password, username, address, phone, isAdmin },
+    { email, password: pass, username, address, phone, isAdmin },
     process.env.tokenizer,
     {
       expiresIn: "2h",

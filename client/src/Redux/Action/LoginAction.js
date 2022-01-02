@@ -32,7 +32,7 @@ const loginHandler = (payload) => {
       type: LOGIN,
       payload: {
         isSuccess,
-        responseData: responseData.username,
+        responseData: responseData.token,
       },
     };
   } else {

@@ -4,14 +4,14 @@ import { useNavigate } from "react-router";
 
 const HomeScreen = (props) => {
   const navigation = useNavigate();
-  const [loggedIn, setLoggedIn] = useState(
-    JSON.parse(localStorage.getItem("logged"))
-  );
+  const [loggedIn, setLoggedIn] = useState(localStorage.getItem("logged"));
 
   const isNotLoggedIn = () => {
     if (!loggedIn) {
-      console.log(loggedIn);
       navigation("/login");
+    }
+    else{
+      
     }
   };
 
@@ -25,5 +25,8 @@ const HomeScreen = (props) => {
     </div>
   );
 };
+
+
+
 
 export default HomeScreen;

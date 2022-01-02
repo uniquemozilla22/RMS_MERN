@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { Routes, Route, Navigate } from "react-router";
+import React from "react";
+import { Routes, Route } from "react-router";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
 
