@@ -1,17 +1,15 @@
+import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 const HomeScreen = (props) => {
   const navigation = useNavigate();
-  const [loggedIn, setLoggedIn] = useState(localStorage.getItem("logged"));
+  const [loggedIn, setLoggedIn] = useState(Cookies.get("token"));
 
   const isNotLoggedIn = () => {
     if (!loggedIn) {
       navigation("/login");
-    }
-    else{
-      
     }
   };
 
@@ -25,8 +23,5 @@ const HomeScreen = (props) => {
     </div>
   );
 };
-
-
-
 
 export default HomeScreen;

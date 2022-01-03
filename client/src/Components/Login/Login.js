@@ -5,6 +5,7 @@ import LoginAction from "../../Redux/Action/LoginAction";
 import LoaderAction from "../../Redux/Action/LoaderAction";
 import { useNavigate } from "react-router";
 import ErrorModal from "../ErrorModal/ErrorModal";
+import Cookies from "js-cookie";
 
 const Login = (props) => {
   const [user, setUser] = useState(props.user);
@@ -22,8 +23,8 @@ const Login = (props) => {
   useEffect(() => {
     setUser(props.user);
     if (props.user.isLoggedIn) {
-      localStorage.setItem("logged", props.user.userStatus);
-      navigation("/");
+      Cookies.set("token", props.user.userStatus, { expires: 1 });
+      navigation("/home");
     }
   }, [navigation, props.user]);
 

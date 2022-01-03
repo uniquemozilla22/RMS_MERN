@@ -1,13 +1,38 @@
-import React from "react";
-import { Routes, Route } from "react-router";
+import Cookies from "js-cookie";
+import React, { useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router";
+import axiosBase from "./axiosBase";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
 
 const App = () => {
+  const navigation = useNavigate();
+  const [token, setToken] = useState(Cookies.get("token"));
+
+  const validToken = () => {
+    if (token) {
+      axiosBase.post("/validateuser", { token }).then((res) => {
+        const { isValidToken } = res.data.responseData;
+        if (!isValidToken) {
+          navigation("/login", { res: "Expired Token" });
+        } else {
+          navigation("/home");
+        }
+      });
+    } else {
+      navigation("/login", { res: "Expired Token" });
+    }
+  };
+
+  useEffect(() => {
+    validToken();
+    console.log("validToken Called");
+  }, []);
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomeScreen />} />
+        <Route exact path="/"></Route>
+        <Route path="/home" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />
       </Routes>
     </>
