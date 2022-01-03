@@ -8,7 +8,6 @@ const LoginAction = (payload) => {
   return (dispatch) => {
     return loginToTheSyystem(username, password)
       .then((res) => {
-        console.log(res);
         dispatch(loginHandler(res));
       })
       .catch((err) => {
@@ -22,8 +21,6 @@ const loginToTheSyystem = (username, password) => {
 };
 
 const loginHandler = (payload) => {
-  console.log(payload);
-
   const {
     status,
     data: { isSuccess, responseData },

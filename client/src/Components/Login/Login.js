@@ -6,18 +6,18 @@ import LoaderAction from "../../Redux/Action/LoaderAction";
 import { useNavigate } from "react-router";
 import ErrorModal from "../ErrorModal/ErrorModal";
 import Cookies from "js-cookie";
+import { Alert } from "react-bootstrap";
 
 const Login = (props) => {
   const [user, setUser] = useState(props.user);
   const navigation = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.Loader();
     props.Login(username, password);
-    props.Loader();
   };
 
   useEffect(() => {
@@ -26,19 +26,27 @@ const Login = (props) => {
       Cookies.set("token", props.user.userStatus, { expires: 1 });
       navigation("/home");
     }
-  }, [navigation, props.user]);
+    if (!user.isLoggedIn && user.userStatus !== null) {
+      setShowModal(true);
+    }
+  }, [navigation, props.user, user.isLoggedIn, user.userStatus]);
 
   return (
     <>
-      {!user.isLoggedIn && user.userStatus !== null ? (
-        <ErrorModal title={user.userStatus} />
-      ) : null}
+      <ErrorModal
+        title={user.userStatus || " "}
+        show={showModal}
+        setShowModal={setShowModal}
+      />
       <div className={classes.login__section + " container"}>
         <div
           className={
             classes.login__card__container + " col-md-4 col-lg-4 col-sm-12"
           }
         >
+          {!user.isLoggedIn && user.userStatus !== null ? (
+            <Alert variant={"danger"}>{user.userStatus}</Alert>
+          ) : null}
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="col-md-12">
               <input
