@@ -6,7 +6,7 @@ const validateUser = (req, res, Response) => {
   const { token } = req.body;
 
   jwt.verify(token, process.env.tokenizer, async (err, user) => {
-    if (err) return res.status(403).end(new Response(false, "Invalid Token"));
+    if (err) res.status(403).end(new Response(false, "Invalid Token"));
 
     const { email, password, username, address, phone, isAdmin } = user;
     const userDB = await User.findOne({

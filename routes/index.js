@@ -6,7 +6,7 @@ const validateUser = require("./validateUser/validateUser");
 const routes = (router) => {
   router.post("/login", (req, res) => login(req, res, Response));
   router.post("/register", (req, res) => register(req, res, Response));
-  router.post("/validateUser", (req, res) => validateUser(req, res, Response));
+  router.post("/validateuser", (req, res) => validateUser(req, res, Response));
 
   router.get("/", (req, res) => {
     res.send("Server has started");
