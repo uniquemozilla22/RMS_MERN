@@ -1,0 +1,9 @@
+.header__container {
+}
+
+.header__container .header__searchbar input {
+  border-radius: 20px;
+}
+.header__container .header__searchbar input:placeholder {
+  color: #ccc;
+}

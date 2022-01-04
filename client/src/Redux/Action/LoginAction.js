@@ -17,30 +17,44 @@ const LoginAction = (payload) => {
 };
 
 const loginToTheSyystem = (username, password) => {
-  return axiosBase.post("/login", { username, password });
+  try {
+    return axiosBase.post("/login", { username, password });
+  } catch (err) {
+    console.log({ ...err });
+  }
 };
 
 const loginHandler = (payload) => {
-  const {
-    status,
-    data: { isSuccess, responseData },
-    statusText,
-  } = payload;
+  try {
+    const {
+      status,
+      data: { isSuccess, responseData },
+      statusText,
+    } = payload;
 
-  if (isSuccess) {
+    if (isSuccess) {
+      return {
+        type: LOGIN,
+        payload: {
+          isSuccess,
+          responseData: responseData.token,
+        },
+      };
+    } else {
+      return {
+        type: LOGIN,
+        payload: {
+          isSuccess,
+          responseData: statusText + " " + status + ":" + responseData,
+        },
+      };
+    }
+  } catch (e) {
     return {
       type: LOGIN,
       payload: {
-        isSuccess,
-        responseData: responseData.token,
-      },
-    };
-  } else {
-    return {
-      type: LOGIN,
-      payload: {
-        isSuccess,
-        responseData: statusText + " " + status + ":" + responseData,
+        isSuccess: false,
+        responseData: "Not Found 404 : Internet Connection Error",
       },
     };
   }

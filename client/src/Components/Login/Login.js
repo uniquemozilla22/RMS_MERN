@@ -17,7 +17,9 @@ const Login = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    props.Loader();
     props.Login(username, password);
+    props.Loader();
   };
 
   useEffect(() => {

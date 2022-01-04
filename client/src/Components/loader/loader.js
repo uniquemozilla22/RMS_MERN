@@ -1,25 +1,9 @@
 import React from "react";
 import classes from "./loader.module.css";
+import { Spinner } from "react-bootstrap";
 
 const Loader = (props) => {
-  return (
-    <div className={classes.loadingio_spinner_spinner_jjd4lh21dqa}>
-      <div className={classes.ldio_guwbuk48t94}>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  );
+  return <Spinner animation="grow" variant="light" />;
 };
 
 export default Loader;

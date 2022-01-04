@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import Layout from "../Components/Layout";
 
 const HomeScreen = (props) => {
   const navigation = useNavigate();
@@ -18,9 +19,9 @@ const HomeScreen = (props) => {
   }, [loggedIn]);
 
   return (
-    <div>
+    <Layout>
       <h1>Home Screen</h1>
-    </div>
+    </Layout>
   );
 };
 
