@@ -16,7 +16,7 @@ const App = () => {
         if (!isValidToken) {
           navigation("/login", { res: "Expired Token" });
         } else {
-          navigation("/home");
+          navigation("/");
         }
       });
     } else {
@@ -26,13 +26,11 @@ const App = () => {
 
   useEffect(() => {
     validToken();
-    console.log("validToken Called");
   }, []);
   return (
     <>
       <Routes>
-        <Route exact path="/"></Route>
-        <Route path="/home" element={<HomeScreen />} />
+        <Route exact path="/" element={<HomeScreen />}></Route>
         <Route path="/login" element={<LoginScreen />} />
       </Routes>
     </>

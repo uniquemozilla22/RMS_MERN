@@ -33,7 +33,7 @@ const loginHandler = (payload) => {
     } = payload;
 
     if (isSuccess) {
-      return { 
+      return {
         type: LOGIN,
         payload: {
           isSuccess,
@@ -50,6 +50,7 @@ const loginHandler = (payload) => {
       };
     }
   } catch (e) {
+    console.log(e);
     return {
       type: LOGIN,
       payload: {

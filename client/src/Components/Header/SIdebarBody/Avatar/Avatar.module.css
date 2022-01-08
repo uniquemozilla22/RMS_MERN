@@ -1,0 +1,32 @@
+.avatar__container {
+  display: flex;
+  border: 1px solid #dddd;
+  justify-content: space-around;
+  padding: 0.5rem 1rem;
+  transition: transform 0.1s ease-in;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.avatar__container img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.avatar__container .avatar__content {
+  padding: 0 10px;
+}
+
+.avatar__container .avatar__content h3 {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+}
+
+.avatar__container .avatar__content p {
+  font-size: 0.9rem;
+  padding: 0;
+  margin: 0;
+}

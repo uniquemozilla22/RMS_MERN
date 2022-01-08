@@ -1,0 +1,8 @@
+.dropdown__info {
+}
+
+.item__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

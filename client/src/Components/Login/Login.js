@@ -26,7 +26,7 @@ const Login = (props) => {
     setUser(props.user);
     if (props.user.isLoggedIn) {
       Cookies.set("token", props.user.userStatus, { expires: 1 });
-      navigation("/home");
+      navigation("/");
     }
     if (!user.isLoggedIn && user.userStatus !== null) {
       setShowModal(true);

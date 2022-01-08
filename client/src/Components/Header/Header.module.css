@@ -7,3 +7,11 @@
 .header__container .header__searchbar input:placeholder {
   color: #ccc;
 }
+
+.header__container .header__brand {
+  padding-left: 1rem;
+}
+
+.header__container a {
+  color: #2b2b2b;
+}

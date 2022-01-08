@@ -1,0 +1,18 @@
+.navLink {
+  margin-top: 0.2rem;
+}
+
+.navLink a {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-decoration: none;
+  color: #6c7b92;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+}
+
+.navLink .active__navigation {
+  color: #49389b;
+}
