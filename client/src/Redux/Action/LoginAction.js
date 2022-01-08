@@ -33,7 +33,7 @@ const loginHandler = (payload) => {
     } = payload;
 
     if (isSuccess) {
-      return {
+      return { 
         type: LOGIN,
         payload: {
           isSuccess,
