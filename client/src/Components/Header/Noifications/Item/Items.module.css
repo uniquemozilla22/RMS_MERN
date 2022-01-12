@@ -1,0 +1,50 @@
+.notification__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  margin: 1rem 0;
+  border-bottom: 0.5px solid #f8f8f260;
+  border-radius: 0px;
+  transition: border-radius 0.2s ease-in;
+}
+
+.notification__active {
+  border-radius: 20px;
+  background-color: #282a36;
+  border: none;
+}
+
+.notification__container .icon {
+  padding: 1rem;
+  background: #f8f8f260;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  color: #f8f8f2;
+}
+
+.notification__container .content__wrapper .title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.notification__container .content__wrapper .title .mark_as_read {
+  color: #f8f8f240;
+}
+
+.notification__container .date__container {
+  color: #f8f8f240;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+}
+
+.notification__container .mark_as_read {
+  margin-right: 1rem;
+}
+
+.notification__container .content__wrapper .description {
+  width: 100%;
+  min-width: 300px;
+  color: #f8f8f260;
+  font-size: 0.8rem;
+}

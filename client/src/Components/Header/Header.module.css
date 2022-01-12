@@ -1,11 +1,24 @@
 .header__container {
+  background: #44475a;
+  color: #f8f8f2;
+}
+
+.header__container a:hover {
+  color: #f8f8f2;
+  font-weight: 800;
 }
 
 .header__container .header__searchbar input {
   border-radius: 20px;
 }
-.header__container .header__searchbar input:placeholder {
-  color: #ccc;
+
+.header__container .header__searchbar input {
+  background: #282a36;
+  border: none;
+  color: #f8f8f2;
+}
+.header__container .header__searchbar input::placeholder {
+  color: #f8f8f260;
 }
 
 .header__container .header__brand {
@@ -13,5 +26,26 @@
 }
 
 .header__container a {
-  color: #2b2b2b;
+  color: #f8f8f2;
+}
+
+.sidebar__container {
+  background: #44475a;
+  color: #f8f8f2;
+}
+
+.sidebar__container .sidebar__title {
+  color: #f8f8f2;
+}
+
+.sidebar__container .sidebar__header button {
+  color: #f8f8f2;
+}
+
+.sidebar__container .sidebar__title {
+  color: #f8f8f2;
+}
+
+.sidebar__container button {
+  color: #f8f8f2;
 }

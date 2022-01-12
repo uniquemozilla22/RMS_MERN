@@ -6,7 +6,7 @@ import "bootstrap/dist/js/bootstrap";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./Redux/store";
+import store from ".//Redux/store";
 import "./index.css";
 
 ReactDOM.render(

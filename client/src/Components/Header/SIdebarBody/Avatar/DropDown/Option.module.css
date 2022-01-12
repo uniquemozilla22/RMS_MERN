@@ -1,4 +1,14 @@
-.dropdown__info {
+.dropdown__info a::after {
+  content: "";
+  border: none;
+}
+
+.dropdown__info a {
+  color: #f8f8f2;
+}
+
+.dropdown__info a:hover {
+  color: #f8f8f2;
 }
 
 .item__title {

@@ -1,7 +1,4 @@
-import { faCaretDown, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { Dropdown, DropdownButton, NavDropdown } from "react-bootstrap";
-import NavigationLink from "../NavLink/NavLink";
 import classes from "./Avatar.module.css";
 import Option from "./DropDown/Option";
 

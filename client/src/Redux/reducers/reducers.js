@@ -1,4 +1,4 @@
-import { LOADER, LOGIN, REGISTER } from "../Action/Types";
+import { LOADER, LOGIN, REGISTER, LOGOUT } from "../Action/Types";
 import LoginReducer from "./login/LoginReducer";
 
 const initialState = {
@@ -20,6 +20,13 @@ const reducers = (state = initialState, action) => {
     }
     case LOADER: {
       state.isLoaderActive = !state.isLoaderActive;
+      return state;
+    }
+    case LOGOUT: {
+      state.user = {
+        userStatus: null,
+        isLoggedIn: false,
+      };
       return state;
     }
     default:

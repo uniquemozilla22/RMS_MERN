@@ -6,7 +6,7 @@
 
 .login__section .login__card__container {
   margin: auto;
-  background: #3f3f3f;
+  background: #44475a;
   box-shadow: 0 8px 12px 0 #5457805e;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -23,13 +23,22 @@
 
 .login__section .login__card__container form input {
   margin: 10px 0;
-  background: #333333;
-  color: #cfcfcf;
+  background: #6272a4;
+  color: #f8f8f2;
   border: none;
+  border-radius: 20px;
+  padding: 0.7rem;
+  padding-left: 1.5rem;
+}
+
+.login__section .login__card__container form input::placeholder {
+  color: #f8f8f240;
 }
 
 .login__section .login__card__container form button {
   margin: 10px 0;
-  background: #2b2b2b;
-  color: #cfcfcf;
+  background: #282a36;
+  color: #f8f8f2;
+  border-radius: 20px;
+  padding: 0.7rem;
 }
