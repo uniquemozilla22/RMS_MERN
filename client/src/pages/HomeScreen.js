@@ -8,15 +8,15 @@ const HomeScreen = (props) => {
   const navigation = useNavigate();
   const [loggedIn, setLoggedIn] = useState(Cookies.get("token"));
 
-  const isNotLoggedIn = () => {
-    if (!loggedIn) {
-      navigation("/login");
-    }
-  };
+  // const isNotLoggedIn = () => {
+  //   if (!loggedIn) {
+  //     navigation("/login");
+  //   }
+  // };
 
-  useEffect(() => {
-    isNotLoggedIn();
-  }, [loggedIn]);
+  // useEffect(() => {
+  //   isNotLoggedIn();
+  // }, [loggedIn]);
 
   return (
     <Layout>
