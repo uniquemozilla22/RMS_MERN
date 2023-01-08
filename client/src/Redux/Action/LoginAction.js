@@ -3,6 +3,7 @@ import LoaderAction from "./LoaderAction";
 import { LOGIN } from "./Types";
 
 const LoginAction = (payload) => {
+  console.log(payload);
   const { username, password } = payload;
 
   return (dispatch) => {
